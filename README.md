@@ -1,4 +1,4 @@
-<h1 align="centre">Factify</h1>
+<h1 align="center">Factify</h1>
 
 ## Execution Guide:
 
