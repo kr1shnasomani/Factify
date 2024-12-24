@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/cb0bc4ef-8ae2-4490-9181-9e844a210597)<h1 align="center">Factify</h1>
+<h1 align="center">Factify</h1>
+This project uses a fine-tuned RoBERTa model for fake news detection. It analyzes the title and content of news articles, predicting "Real" or "Fake" with a confidence score. Built with Hugging Face Transformers and PyTorch for NLP tasks.
 
 ## Execution Guide:
 1. Run the following command line in the terminal:
@@ -14,7 +15,7 @@
 
 1. `fake.txt`:
 
-  ![image](https://github.com/user-attachments/assets/f0273857-b498-4168-bb30-e151982b8c9c)
+   ![image](https://github.com/user-attachments/assets/f0273857-b498-4168-bb30-e151982b8c9c)
 
 2. `real.txt`:
 
