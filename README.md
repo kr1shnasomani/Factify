@@ -41,6 +41,6 @@ The code trains a text classification model using a Convolutional Neural Network
 
 6. **Model Training:** The model is trained for 50 epochs, with accuracy and loss being monitored during training.
 
-7. **Model Performance: The trained the model for 20 epochs and achieved the following:
+7. **Model Performance:** The trained the model for 20 epochs and achieved the following:
 - Training accuracy: 94.81% 
 - Validation accuracy: ~75-78%
