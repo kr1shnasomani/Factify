@@ -1,36 +1,46 @@
 <h1 align="center">Factify</h1>
-This project uses a fine-tuned RoBERTa model for fake news detection. It analyzes the title and content of news articles, predicting "Real" or "Fake" with a confidence score. Built with Hugging Face Transformers and PyTorch for NLP tasks.
+The code demonstrates text classification using a Convolutional Neural Network (CNN) and LSTM model. It processes the fake or real news dataset by tokenizing titles, applying word embeddings and training a model to classify news as fake or real. The model uses GloVe word embeddings for improved performance.
 
 ## Execution Guide:
 1. Run the following command line in the terminal:
    ```
-   pip install transformers torch
+   pip install tensorflow numpy pandas scikit-learn matplotlib nltk keras glove-python-binary
    ```
 
-2. Enter the news article in a `.txt` file and paste the path of this file into the code
+2. Download the dataset (link to the dataset: **https://www.kaggle.com/datasets/hassanamin/textdb3**)
 
-3. Upon running the code now, it will output the prediction with the confidence score
+3. Upon running the code, it also saves an addition file named model.keras (this file stores the trained model)
 
-## Model Prediction:
+4. Enter the news text in the code and it will provide the prediction
 
-1. `fake.txt`:
+## Accuracy & Loss Over Epochs:
 
-   ![image](https://github.com/user-attachments/assets/f0273857-b498-4168-bb30-e151982b8c9c)
+![image](https://github.com/user-attachments/assets/abf80397-acc7-44b6-ad81-bae6671560b0)
 
-2. `real.txt`:
-
-   ![image](https://github.com/user-attachments/assets/797f1d11-7a2d-448d-ba35-82a7b4d80a94)
+![image](https://github.com/user-attachments/assets/adc04adf-5653-4937-84db-561862d6b499)
 
 ## Overview:
-This project implements a **fake news detection system** using a fine-tuned **RoBERTa** model for sequence classification. It processes news articles, evaluates their content, and predicts whether they are "Real" or "Fake" with a confidence score.
+The code trains a text classification model using a Convolutional Neural Network (CNN) and Long Short-Term Memory (LSTM) network with pre-trained word embeddings. Based on the code, here are some points:
 
-1. **Model and Tokenizer Initialization**: The pretrained model and tokenizer are loaded from the Hugging Face model repository (`hamzab/roberta-fake-news-classification`).
+### Key Steps:
+1. **Dataset Download and Extraction:** You successfully downloaded and extracted the dataset from Kaggle.
+   
+2. **Data Preprocessing:**
+   - You loaded the data from the CSV file and preprocessed the text and labels.
+   - The labels are encoded using `LabelEncoder` for binary classification (`REAL` or `FAKE`).
+   
+3. **Tokenization:** The titles of the articles are tokenized using the Keras `Tokenizer` and padded to the same length.
 
-2. **Prediction Function**:
-   - Combines the news title and content into a single formatted string.
-   - Tokenizes the input string and feeds it to the model.
-   - Applies softmax to compute probabilities and determines the prediction and confidence score.
+4. **Word Embeddings:** You used GloVe (Global Vectors for Word Representation) embeddings (`glove.6B.50d.txt`), which are loaded and indexed for the training model.
 
-3. **Input Processing**: Reads a news article from a text file where the first line is assumed to be the title, and the subsequent lines form the content.
+5. **Model Architecture:** The model consists of an `Embedding` layer initialized with the GloVe embeddings, followed by:
+     - `Dropout` for regularization.
+     - `Conv1D` and `MaxPooling1D` for feature extraction.
+     - `LSTM` for learning sequence dependencies.
+     - `Dense` layer for the binary classification task (`sigmoid` activation).
 
-4. **Output**: Prints the prediction (`Real` or `Fake`) and the confidence percentage.
+6. **Model Training:** The model is trained for 50 epochs, with accuracy and loss being monitored during training.
+
+7. **Model Performance: The trained the model for 20 epochs and achieved the following:
+- Training accuracy: 94.81% 
+- Validation accuracy: ~75-78%
